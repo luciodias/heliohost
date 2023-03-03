@@ -9,7 +9,7 @@ const server = http.createServer((req, res) => {
   	res.setHeader('Content-Type', 'text/plain');
 	//const resJson = JSON.stringify(query); 
 	//res.end(query["hub.challenge"]);
-	res.end(process.env.var);
+	res.end('Valor: ' + process.env.var);
 });
 
 server.listen(port, hostname, () => {
