@@ -1,17 +1,11 @@
-const http = require('http'),url = require('url');
+const express = require('express')
+const app = express()
+const port = 80
 
-const hostname = 'luciod.helioho.st';
-const port = 80;
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
-const server = http.createServer((req, res) => {
-	const query = url.parse(req.url,true).query;
-	res.statusCode = 200;
-  	res.setHeader('Content-Type', 'text/plain');
-	//const resJson = JSON.stringify(query); 
-	//res.end(query["hub.challenge"]);
-	res.end('Valor: ' + process.env.var);
-});
-
-server.listen(port, hostname, () => {
-  //console.log(`Server running at http://${hostname}:${port}/`);
-});
+app.listen(port, () => {
+  //nsole.log(`Example app listening on port ${port}`)
+})
